@@ -4,8 +4,8 @@ from method1-LIME import LIME
 from method2-CNN import *
 
 def main():
-    image_dir = "/test/low"
-    save_dir = "/test/high"
+    image_dir = "./test/low/"
+    save_dir = "./test/high/"
     lime = LIME(iterations=30,alpha=0.15,rho=1.1,gamma=0.6,strategy=2,exact=True)
     image_paths = lime.load_images(image_dir)
     for image_path in image_paths:
@@ -16,7 +16,7 @@ def main():
         savePath = os.path.join(save_dir, f'{filename}_lime{ext}')
         cv2.imwrite(savePath, R)
         lime.scores(cv2.imread(image_path),cv2.imread(savePath))
-
+"""
 def main():
     image_dir = "/test/low"
     save_dir = "/test/high"
@@ -40,7 +40,7 @@ def main():
         original = cv2.imread(image_path)
         original = cv2.cvtColor(original, cv2.COLOR_BGR2RGB)
         scores(original, enhanced_img)
-
+"""
 
 if __name__ == "__main__":
     main()
