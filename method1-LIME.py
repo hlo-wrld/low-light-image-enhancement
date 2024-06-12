@@ -3,6 +3,7 @@ from scipy.fft import *
 from skimage import exposure
 import cv2
 from tqdm import trange
+from math import log10, sqrt 
 
 class LIME:
   def __init__(self, iterations, alpha, rho, gamma, strategy, exact):
