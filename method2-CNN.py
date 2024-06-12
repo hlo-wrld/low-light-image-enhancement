@@ -6,7 +6,7 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.layers import add, Conv2D, Input
 from keras.models import Model
 
-def PSNR(original, compressed): 
+def scores(original, compressed): 
     mse = np.mean((original - compressed) ** 2) 
     abs_er = np.abs(original - compressed)
     mae = np.mean(abs_er)
