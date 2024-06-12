@@ -63,29 +63,3 @@ def test_model(Model_Enhancer, img_path):
     enhanced_img = np.squeeze(enhanced_img)
     
     return enhanced_img
-
-if __name__ == "__main__":
-    # Define paths to high and low light images
-    high_light_dir = '/kaggle/input/low-light-proj/Train/high/'
-    low_light_dir = '/kaggle/input/low-light-proj/Train/low/'
-
-    # Preprocess data
-    X_, y_ = PreProcessData(high_light_dir, low_light_dir)
-
-    # Instantiate model
-    Model_Enhancer = InstantiateModel(input_shape=(500, 500, 3))
-
-    # Compile model
-    Model_Enhancer.compile(optimizer="adam", loss='mean_squared_error')
-
-    # Train the model
-    train_model(Model_Enhancer, X_, y_, epochs=5, batch_size=32)
-
-    # Test the model with a sample image
-    img_path = '/kaggle/input/low-light-proj/Train/low/118.png'
-    enhanced_img = test_model(Model_Enhancer, img_path)
-
-    # Display PSNR between original and enhanced images
-    original = cv2.imread("/kaggle/input/low-light-proj/Train/high/102.png")
-    original = cv2.cvtColor(original, cv2.COLOR_BGR2RGB)
-    PSNR(original, enhanced_img)
