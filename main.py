@@ -15,7 +15,7 @@ def main():
         filename, ext = os.path.splitext(base_filename)
         savePath = os.path.join(save_dir, f'{filename}_lime{ext}')
         cv2.imwrite(savePath, R)
-        lime.psnr(cv2.imread(image_path),cv2.imread(savePath))
+        lime.scores(cv2.imread(image_path),cv2.imread(savePath))
 
 def main():
     image_dir = "/test/low"
@@ -39,7 +39,7 @@ def main():
       
         original = cv2.imread(image_path)
         original = cv2.cvtColor(original, cv2.COLOR_BGR2RGB)
-        PSNR(original, enhanced_img)
+        scores(original, enhanced_img)
 
 
 if __name__ == "__main__":
