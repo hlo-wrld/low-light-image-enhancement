@@ -93,7 +93,7 @@ class LIME:
         # TODO: rapid algorithm
         else:
             pass
-    def psnr(self,original, compressed): 
+    def scores(self,original, compressed): 
         orig = self.loadimage(cv2.imread(original) / 255)
         comp = self.loadimage(cv2.imread(compressed) / 255)
         mse = np.mean((orig - comp) ** 2) 
