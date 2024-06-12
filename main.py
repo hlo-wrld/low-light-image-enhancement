@@ -1,7 +1,7 @@
 import os
 import cv2
 from method1-LIME import LIME
-from method2-cnn import *
+from method2-CNN import *
 
 def main():
     image_dir = "/test/low"
