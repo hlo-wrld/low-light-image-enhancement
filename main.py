@@ -6,7 +6,7 @@ def main():
   image_dir = "/test/low"
   save_dir = "/test/high"
   lime = LIME(iterations=30,alpha=0.15,rho=1.1,gamma=0.6,strategy=2,exact=True)
-  image_paths = lime.load_images(img_dir)
+  image_paths = lime.load_images(image_dir)
   for image_path in image_paths:
     lime.load(image_path)
     R = lime.run()
@@ -15,3 +15,5 @@ def main():
     savePath = os.path.join(save_dir, f'{filename}_lime{ext}')
     cv2.imwrite(savePath, R)
     lime.psnr(cv2.imread(image_path),cv2.imread(savePath))
+if __name__ == "__main__":
+    main()
