@@ -21,8 +21,8 @@ def main():
     image_dir = "/test/low"
     save_dir = "/test/high"
   
-    high_light_dir = '/kaggle/input/low-light-proj/Train/high/'
-    low_light_dir = '/kaggle/input/low-light-proj/Train/low/'
+    high_light_dir = './data/high/'
+    low_light_dir = './data/low/'
   
     X_, y_ = PreProcessData(high_light_dir, low_light_dir)
     Model_Enhancer = InstantiateModel(input_shape=(500, 500, 3))
