@@ -86,10 +86,12 @@ class LIME:
         # TODO: rapid algorithm
         else:
             pass
-    def psnr(original, compressed): 
-      mse = np.mean((original - compressed) ** 2) 
-      abs_er = np.abs(original - compressed)
-      mae = np.mean(abs_er)
-      max_pixel = 255.0
-      psnr = 20 * log10(max_pixel / sqrt(mse)) 
-      print ("psnr: ",psnr,'mse: ',mse,'mae: ',mae)
+    def psnr(self,original, compressed): 
+        orig = self.loadimage(cv2.imread(original) / 255)
+        comp = self.loadimage(cv2.imread(compressed) / 255)
+        mse = np.mean((orig - comp) ** 2) 
+        abs_er = np.abs(orig - comp)
+        mae = np.mean(abs_er)
+        max_pixel = 255.0
+        psnr = 20 * log10(max_pixel / sqrt(mse)) 
+        print ("psnr: ",psnr,'mse: ',mse,'mae: ',mae)
