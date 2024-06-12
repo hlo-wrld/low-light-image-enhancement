@@ -15,6 +15,12 @@ class LIME:
 
     def load(self, imgPath):
         self.loadimage(cv2.imread(imgPath) / 255)
+    def load_images(self,image_dir):
+        image_paths = []
+        for filename in os.listdir(image_dir):
+            if filename.endswith('.jpg') or filename.endswith('.png'):
+                image_paths.append(os.path.join(image_dir, filename))
+        return image_paths
 
     def loadimage(self,L):
         self.L = L
